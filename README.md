@@ -94,10 +94,78 @@ Erb template provides a built-in function\-\-link_to for links.
 
 <%= link_to(text, target) %>
 
-<%= link_to('hello', {:controller: 'demo', :action: 'index'}) %>
+<%= link_to("Back To Index", {controller: 'demo', action: "index"}) %>
 ```
 
 > if two pages are in the same controller, you needn't to pass the controller param;
 
+## Get url params
+
+Link
+
+```
+// Url varies depends on your routes setting.
+// Dynamic links to pass params to controllers
+<%= link_to('hello', {:controller => 'demo', :action => 'index', :id => 55}) %>
+```
+
+There are two ways to get params from url.
+
+```
+// controller
+
+@id = params['id']
+@name = params[:name]
+
+// view
+<%= @id %>
+```
+
+## Migration
+
+1. Aim to ctrl database;
+2. Written by Ruby;
+
+```
+rails generate migration DoTestDemo
+```
+
+> Migration name must use camelcase.
+
+## Model
+
+Generate a model.
+
+```
+rails g model User name:string email:string
+```
+
+Create mysql table;
+
+```
+rails db:migrate
+```
+
+Rollback;
+
+```
+rails db:rollback
+```
 
 
+## Mysql
+
+Mysql suggest you using capitalize letters for it's key words.
+
+```
+DESCRIBE users;
+```
+
+
+## Git Branch
+
+Create a branch, and set current to it.
+
+```
+git checkout -b branch_name
+```
