@@ -29,13 +29,13 @@ Things you may want to cover:
 
 It should echo nothing when everything goes well;
 
-```
+``` bash
   rails db:schema:dump
 ```
 
 ## Generate Controller
 
-```
+``` bash
 rails generate controller demo index
 ```
 
@@ -43,19 +43,19 @@ rails generate controller demo index
 
 > Default routes will no longer be supported.
 
-```
+``` bash
 get ':controller(/:action(/:id))'
 ```
 
 ## Root routes
 
-```
+``` bash
 root 'demo#index'
 ```
 
 ## Simple routes
 
-```
+``` bash
 get 'demo/index'
 ```
 
@@ -63,7 +63,7 @@ get 'demo/index'
 
 Vallina Ruby statements.
 
-```
+``` bash
 <%  %>
 ```
 
@@ -77,7 +77,7 @@ Erb file and it's template grammer.
 
 Conversation with controller.
 
-```
+``` bash
 // controller
 @foo = "bar"
 
@@ -89,7 +89,7 @@ Conversation with controller.
 
 Erb template provides a built-in function\-\-link_to for links.
 
-```
+``` bash
 <a href="/demo/index">index</a> // not recommend
 
 <%= link_to(text, target) %>
@@ -103,7 +103,7 @@ Erb template provides a built-in function\-\-link_to for links.
 
 Link
 
-```
+``` bash
 // Url varies depends on your routes setting.
 // Dynamic links to pass params to controllers
 <%= link_to('hello', {:controller => 'demo', :action => 'index', :id => 55}) %>
@@ -111,7 +111,7 @@ Link
 
 There are two ways to get params from url.
 
-```
+``` bash
 // controller
 
 @id = params['id']
@@ -126,7 +126,7 @@ There are two ways to get params from url.
 1. Aim to ctrl database;
 2. Written by Ruby;
 
-```
+``` bash
 rails generate migration DoTestDemo
 ```
 
@@ -136,7 +136,7 @@ rails generate migration DoTestDemo
 
 Generate a model.
 
-```
+``` bash
 rails g model User name:string email:string
 ```
 
@@ -148,24 +148,92 @@ rails db:migrate
 
 Rollback;
 
-```
+``` bash
 rails db:rollback
 ```
+
+## Sandbox
+
+Get into sandbox mode.
+
+``` bash
+rails console --sandbox
+```
+
+Create users in sandbox mode.
+
+``` bash
+
+ntnyq = User.new(name: "ntnyq", email: "me@ntnyq.com")
+
+// Need validation pattern set.
+ntnyq.valid?
+
+ntnyq.save
+
+// new and save in one step
+goy = User.create(name: "goy", email: "goy@ntnyq.com")
+```
+
+### View
+
+``` bash
+// list all users
+User.all
+
+// show first user
+User.first
+```
+
+### Find One
+
+```
+User.find(id)
+
+User.find_by(name: "goy")
+```
+
+### Update
+
+``` bash
+goy.name = "gay"
+goy.save
+
+goy.update_attribute(:name, "goy")
+```
+
+### Delete
+
+``` bash
+goy.delete
+```
+
+
+
 
 
 ## Mysql
 
 Mysql suggest you using capitalize letters for it's key words.
 
-```
+``` mysql
 DESCRIBE users;
 ```
 
+## Git
 
-## Git Branch
+### Create Branch
 
 Create a branch and set it currently.
 
-```
+``` bash
 git checkout -b branch_name
+```
+
+### Go Back To master
+
+``` bash
+git checkout master
+
+git checkout -
 ```
