@@ -164,7 +164,7 @@ DESCRIBE users;
 
 ## Git Branch
 
-Create a branch, and set current to it.
+Create a branch and set it currently.
 
 ```
 git checkout -b branch_name
